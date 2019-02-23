@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Battle of Monster</title>
+</head>
+<body>
+  <div>
+    <form action="#" th:action="@{/battleofmonster}" th:object="${battleForm}" method="post">
+      <div>プレイヤー</div>
+      <div>
+        <select name="monsterOneNumber">
+          <option th:each="monster : ${battleForm.getMonsterList()}" th:value="${monster.monster_id}">[[${monster.monster_name}]]</option>
+        </select>
+      </div>
+      <div>CPU</div>
+      <div>
+        <select name="monsterTwoNumber">
+          <option th:each="monster : ${battleForm.getMonsterList()}" th:value="${monster.monster_id}">[[${monster.monster_name}]]</option>
+        </select>
+      </div>
+      <input type="submit" value="バトル開始" />
+    </form>
+  </div>
+</body>
+</html>

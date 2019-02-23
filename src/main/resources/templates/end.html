@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>battle</title>
+</head>
+<body>
+  <div th:text="${result}"></div>
+
+  <form action="#" th:action="@{/restart}" method="get">
+    <input type="submit" value="次の対戦へ" />
+  </form>
+
+  <div th:each="message : ${battleForm.getBattleLog()}">
+    <div th:text="${message}"></div>
+  </div>
+</body>
+</html>

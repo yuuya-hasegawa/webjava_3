@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>battle</title>
+</head>
+<body>
+  <form action="#" th:action="@{/battleofmonster}" th:object="${battleForm}" method="post">
+    <div>
+      <select name="attackNumber">
+        <option value="0">[[${battleForm.getMonsterOne().getArtOne().getArtName()}]]</option>
+        <option value="1">[[${battleForm.getMonsterOne().getArtTwo().getArtName()}]]</option>
+        <option value="2">[[${battleForm.getMonsterOne().getArtThree().getArtName()}]]</option>
+        <option value="3">[[${battleForm.getMonsterOne().getArtFour().getArtName()}]]</option>
+      </select>
+    </div>
+    <input type="submit" value="攻撃" />
+  </form>
+
+  <form action="#" th:action="@{/restart}" method="get">
+    <input type="submit" value="バトル中断" />
+  </form>
+
+  <div th:each="message : ${battleForm.getBattleLog()}">
+    <div th:text="${message}"></div>
+  </div>
+</body>
+</html>
